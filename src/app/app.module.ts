@@ -24,7 +24,7 @@ export function createLoggerConfig() {
   config.messageFormat = {
     timestampFormat: 'HH:mm:ss'
   };
-  config.flushTiming = 10;
+  config.flushTiming = 5000;
   config.useQueue = true;
   return config;
 }
