@@ -11,8 +11,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 
 import { AppComponent } from './app.component';
-import { environmentConfig } from 'src/environments/environment-config';
-import { Config, CONFIG, Targets } from 'projects/my-lib/src/public-api';
+import { Config, CONFIG, MyLibModule, Targets } from 'my-lib';
 
 
 export function createLoggerConfig() {
@@ -44,6 +43,7 @@ export function createLoggerConfig() {
     ButtonModule,
     InputTextModule,
     DropdownModule,
+    MyLibModule
   ],
   providers: [{
     provide: CONFIG,
