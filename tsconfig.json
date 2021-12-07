@@ -11,20 +11,31 @@
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
+    "paths": {
+      "my-lib": [
+        "dist/my-lib/my-lib",
+        "dist/my-lib"
+      ]
+    },
     "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
     "lib": [
       "es2018",
-      "dom"
+      "dom",
+      "es5",
+      "es6",
+      "dom.iterable"
     ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictInjectionParameters": false,
+    "strictInputAccessModifiers": false,
+    "strictTemplates": false,
+    "strictNullChecks": false
   }
 }
