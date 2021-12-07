@@ -15,7 +15,7 @@ export class LogLocalStorage extends LogPublisher {
 
         try {
             // Get previous values from local storage
-            values = JSON.parse(localStorage.getItem(this.location) ?? '') || [];
+            values = JSON.parse(<string>localStorage.getItem(this.location)) || [];
 
             // Add new log entry to array
             values.push(message);

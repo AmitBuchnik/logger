@@ -26,6 +26,7 @@ export function createLoggerConfig() {
   };
   config.flushTiming = 10;
   config.useQueue = true;
+  return config;
 }
 
 @NgModule({

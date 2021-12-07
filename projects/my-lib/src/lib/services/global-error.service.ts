@@ -14,9 +14,9 @@ export class GlobalErrorService implements ErrorHandler {
 
     // Check if it's an error from an HTTP response
     if (!(error instanceof HttpErrorResponse)) {
-      errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
+      errorMsg = `Error: ${error}`;
     } else {
-      errorMsg = `Error: ${error.error.message}`;
+      errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
     }
 
     this.logService.log({
