@@ -1,4 +1,4 @@
-import { Injectable, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,24 +11,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 
 import { AppComponent } from './app.component';
-import { Config, CONFIG, MyLibModule, Targets } from 'my-lib';
-
-
-export function createLoggerConfig() {
-  const config = new Config();
-
-  config.environment = {
-    production: true
-  };
-  config.targets = [Targets.Console, Targets.LocaleStorage];
-  config.messageFormat = {
-    timestampFormat: 'HH:mm:ss'
-  };
-  config.flushTiming = 5000;
-  config.useQueue = true;
-  return config;
-}
-
+import { LoggerModule, LogLevel, Targets } from 'logger';
 @NgModule({
   declarations: [
     AppComponent
@@ -44,15 +27,14 @@ export function createLoggerConfig() {
     ButtonModule,
     InputTextModule,
     DropdownModule,
-    MyLibModule
+    LoggerModule.forRoot({
+      level: LogLevel.Debug,
+      environment: {
+        production: true
+      },
+      targets: [Targets.Console, Targets.LocaleStorage]
+    })
   ],
-  providers: [{
-    provide: CONFIG,
-    // useClass: Config,
-    useFactory: createLoggerConfig,
-    // deps: [Config]
-    // useValue: environmentConfig
-  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

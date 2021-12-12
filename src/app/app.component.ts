@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
 
 import { PrimeNGConfig } from 'primeng/api';
 
@@ -9,10 +8,9 @@ import { PrimeNGConfig } from 'primeng/api';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private primengConfig: PrimeNGConfig) { }
+  constructor() { }
 
   ngOnInit() {
-    this.primengConfig.ripple = true;
     throw 'ddsdsada';
   }
 }

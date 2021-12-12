@@ -1,4 +1,4 @@
-import { Environment } from "projects/my-lib/src/lib/interfaces/environment.interface";
+import { Environment } from "logger";
 import { environment } from "./environment.prod";
 
 

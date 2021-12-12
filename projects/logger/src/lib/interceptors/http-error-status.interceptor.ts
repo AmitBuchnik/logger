@@ -17,7 +17,7 @@ import { LogService } from '../services/log.service';
 @Injectable()
 export class HttpErrorStatusInterceptor implements HttpInterceptor {
 
-    constructor(private router: Router, private logService: LogService) { }
+    constructor(private router: Router, private logger: LogService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(catchError((error: HttpErrorResponse) => {
@@ -31,11 +31,7 @@ export class HttpErrorStatusInterceptor implements HttpInterceptor {
                 errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
             }
 
-            this.logService.log({
-                message: errorMsg,
-                stackTrace: Error().stack,
-                timestamp: new Date()
-            });
+            this.logger.log(errorMsg);
             throw error;
         }));
     }
