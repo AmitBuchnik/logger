@@ -16,17 +16,18 @@ export class LogEntry {
 
         if (this.logWithDate) {
             const datePipe = new DatePipe('en');
-            ret = datePipe.transform(Date.now(), this.timestampFormat) + " - ";
+            ret = `${datePipe.transform(Date.now(), this.timestampFormat)} - `;
         }
 
-        ret += "Type: " + LogLevel[this.level];
-        ret += " - Message: " + this.message;
+        ret += `Type: ${LogLevel[this.level]}`;
+        ret += ` - Message: ${this.message}`;
+
         if (this.extraInfo.length) {
-            ret += " - Extra Info: " + this.formatParams(this.extraInfo);
+            ret += ` - Extra Info: ${this.formatParams(this.extraInfo)}`;
         }
 
         if (this.logStackTrace) {
-            ret += " - Stack trace: " + Error().stack;
+            ret += ` - Stack trace: ${Error().stack}`;
         }
         return ret;
     }
