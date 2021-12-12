@@ -30,4 +30,8 @@ export class LogLocalStorage extends LogPublisher {
             console.log(ex);
         }
     }
+
+    clear() {
+        localStorage.removeItem(this.location);
+    }
 }

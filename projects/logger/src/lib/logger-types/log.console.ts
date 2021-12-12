@@ -11,4 +11,8 @@ export class LogConsole extends LogPublisher {
     log(entry: LogEntry) {
         console.log(entry.buildLogString());
     }
+
+    clear() {
+        console.clear();
+    }
 }
