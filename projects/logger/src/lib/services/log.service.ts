@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { asyncScheduler } from 'rxjs';
 
@@ -7,7 +7,6 @@ import { LogPublishersService } from './log.publishers.service';
 import { Config } from '../models/config.model';
 import { LogLevel } from '../enums/log-levels.enum';
 import { LogEntry } from '../models/log-entry.model';
-import { CONFIG_TOKEN } from '../logger.module';
 
 @Injectable({
   providedIn: 'root'

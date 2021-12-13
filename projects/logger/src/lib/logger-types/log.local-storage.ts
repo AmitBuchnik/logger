@@ -31,7 +31,7 @@ export class LogLocalStorage extends LogPublisher {
 
             if (ex.code === "22" || ex.code === "1024") {
                 // data wasn't successfully saved due to quota exceed
-                values.splice(0, 1);
+                values.splice(0, 5);
 
                 // Store array into local storage
                 localStorage.setItem(this.location, JSON.stringify(values));
