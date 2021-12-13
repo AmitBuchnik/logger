@@ -11,7 +11,7 @@ export class LogLocalStorage extends LogPublisher {
     // Append log entry to local storage
     log(entry: LogEntry) {
         let ret: boolean = false;
-        let values: LogEntry[];
+        let values: LogEntry[] = [];
 
         try {
             // Get previous values from local storage
@@ -25,9 +25,17 @@ export class LogLocalStorage extends LogPublisher {
 
             // Set return value
             ret = true;
-        } catch (ex) {
+        } catch (ex: any) {
             // Display error in console
             console.log(ex);
+
+            if (ex.code === "22" || ex.code === "1024") {
+                // data wasn't successfully saved due to quota exceed
+                values.splice(0, 1);
+
+                // Store array into local storage
+                localStorage.setItem(this.location, JSON.stringify(values));
+            }
         }
     }
 
