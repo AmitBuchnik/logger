@@ -10,7 +10,8 @@ module.exports = function (config) {
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
-      require('@angular-devkit/build-angular/plugins/karma')
+      require('@angular-devkit/build-angular/plugins/karma'),
+      require('karma-script-launcher')
     ],
     client: {
       jasmine: {
@@ -27,9 +28,12 @@ module.exports = function (config) {
     coverageReporter: {
       dir: require('path').join(__dirname, '../../coverage/logger'),
       subdir: '.',
-      reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
+      reporters: [{
+          type: 'html'
+        },
+        {
+          type: 'text-summary'
+        }
       ]
     },
     reporters: ['progress', 'kjhtml'],
@@ -37,7 +41,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['C:/Program Files/Google/Chrome/Application/chrome.exe'],
     singleRun: false,
     restartOnFileChange: true
   });

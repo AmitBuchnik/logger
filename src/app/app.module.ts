@@ -12,6 +12,7 @@ import { DropdownModule } from 'primeng/dropdown';
 
 import { AppComponent } from './app.component';
 import { LoggerModule, LogLevel, Targets } from 'logger';
+
 @NgModule({
   declarations: [
     AppComponent
