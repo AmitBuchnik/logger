@@ -15,7 +15,7 @@ export class LogService {
 
   publishers: LogPublisher[];
 
-  constructor(public config: Config,
+  constructor(private config: Config,
     private publishersService: LogPublishersService) {
     // Set publishers
     this.publishers = this.publishersService.publishers;

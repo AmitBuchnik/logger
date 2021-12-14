@@ -13,7 +13,7 @@ export class LogPublishersService {
 
   publishers: LogPublisher[] = [];
 
-  constructor(public config: Config) {
+  constructor(private config: Config) {
     // Build publishers arrays
     this.buildPublishers();
   }
